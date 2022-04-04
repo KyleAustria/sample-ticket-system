@@ -13,7 +13,7 @@ use Firebase\JWT\JWT;
 class UserController extends Controller
 {
     public function index(Request $request){
-        // var_dump($request->query());
+        
         $searchbox = $request->query('searchbox');
         if($searchbox == ''){
             $users = User::all();
@@ -50,14 +50,11 @@ class UserController extends Controller
 
     public function show($id, Request $request){
         $user = User::where('id', $id)->first();
-        // var_dump($book);
-        // var_dump($id);
         return view('users.show',['user'=>$user]);
     }
 
     public function update($id, Request $request){
-        // var_dump($id);
-        // var_dump($request->input());
+       
         $user = User::find($id);
 
         $user->name = $request->input('name');
