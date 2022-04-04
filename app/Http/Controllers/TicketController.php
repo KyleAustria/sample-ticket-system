@@ -15,8 +15,7 @@ class TicketController extends Controller
 {
 
     public function indexticket(Request $request){
-        // var_dump($request->user()->id);
-        // var_dump($request->query());
+
         $searchbox = $request->query('searchbox');
         if($searchbox == ''){
             $tickets = Ticket::all();
